@@ -1,0 +1,217 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--[if IE 7 ]><html class="ie ie7 lte9 lte8 lte7" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="en-US">	<![endif]-->
+<!--[if IE 9]><html class="ie ie9 lte9" lang="en-US"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="noIE" lang="en-US">
+<!--<![endif]-->
+	<head>
+		<title>ACOMSS Newsletter</title>
+
+		<!-- meta -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
+
+		<!-- google fonts -->
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans'>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold"/>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+Sans:regular,italic,bold,bolditalic"/>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nixie+One:regular,italic,bold,bolditalic"/>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+SC:regular,italic,bold,bolditalic"/>
+
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}' />
+    <link rel="stylesheet" href='{% static "css/font-awesome.min.css" %}' />
+    <link rel="stylesheet" href='{% static "css/style.css" %}' media="screen"/>
+
+	</head>
+
+	<body>
+
+		<div id="drawer-right">
+			<div class="cross text-right">
+				<a class="toggleDrawer" href="#" ><i class="fa fa-times-circle fa-2x"></i></a>
+			</div>
+			<h2>Navigate</h2>
+			<nav>
+				<ul class="nav nav-pills nav-stacked">
+					<li>
+						<a href="#wrapper"><i class="fa fa-home"></i> Home</a>
+					</li>
+					<li>
+						<a href="#services"><i class="fa fa-tasks"></i> Vission Mission</a>
+					</li>
+					<li>
+						<a href="#portfolio"><i class="fa fa-bookmark"></i> Upcoming Events</a>
+					</li>
+					<li>
+						<a href="#blog"><i class="fa fa-wordpress"></i> Articles</a>
+					</li>
+					<li>
+						<a href="#testimonials"><i class="fa fa-thumbs-up"></i> What is PenTell</a>
+					</li>
+					<li>
+						<a href="#contact"><i class="fa fa-phone-square"></i> Contact</a>
+					</li>
+					<li>
+						<a class="logo" id="login_view"><i class="fa fa-sign-in"></i> Login</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="social">
+				<h2>Stay Connected</h2>
+				<ul>
+					<li><a href=""><i class="fa fa-facebook-square fa-3x"></i></a></li>
+					<li><a href=""><i class="fa fa-twitter-square fa-3x"></i></a></li>
+					<li><a href=""><i class="fa fa-google-plus-square fa-3x"></i></a></li>
+				</ul>
+			</div>
+		</div><!-- #drawer-right -->
+
+		<div id="wrapper">
+
+			<div id="header" class="content-block">
+				<section class="top clearfix">
+					<div class="pull-left">
+						<h1><a class="logo" href={% url 'newsletter:list' %}>PenTell</a></h1>
+					</div>
+					<div class="pull-right">
+						<a class="toggleDrawer" href="#"><i class="fa fa-bars fa-2x"></i></a>
+					</div>
+				</section>
+				<section class="center">
+					<div class="slogan">
+						    <p class="mainp1">COMP<p>
+								<p class= "p1">SCIE</p>
+								<p class= "p1">NTIA</p>
+					</div>
+					<div class="secondary-slogan">
+						ACOMSS NEWSLETTER
+					</div>
+				</section>
+			</div><!-- header -->
+
+
+			<div class="content-block parallax" id="services">
+				<div class="container text-center">
+					<header class="block-heading cleafix">
+						<h1>ACOMSS EDITORIAL TEAM</h1>
+						<h1>PENTELL</h1>
+						<!-- <a class="logo" href='{% url 'accounts:login' %}'><i class="fa fa-sign-in"></i> Login</a> -->
+
+					</header>
+					<section class="block-body">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="service">
+									<i class="fa fa-send-o"></i>
+									<h2>Explore</h2>
+									<p>The Editorial team provides the scopes and happenings inside the walls
+											of computer science, delivering updates
+											and entertaining coverage for the satisfaction of the students.</p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="service">
+									<i class="fa fa-heart-o"></i>
+									<h2>Express</h2>
+									<p>This umbrella focuses on the improvement and growth of an individual
+										as a creative and critical thinker.</p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="service">
+									<i class="fa fa-camera-retro"></i>
+									<h2>Empower</h2>
+									<p>We are diverse group of people aspiring to explore,express and empower.
+										We are the voice of Computer Science. </p>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div><!-- #services -->
+
+			<div class="content-block" id="blog">
+				<div class="container">
+					<header class="block-heading cleafix">
+            <a href={% url 'newsletter:articles' %} class="btn btn-o btn-lg pull-right">View All</a>
+
+						<h1>articles</h1>
+						<p>Monthly documentation</p>
+					</header>
+					<section class="block-body">
+              {% block content %}
+              {% endblock content %}
+					</section>
+				</div>
+			</div><!-- #blog -->
+
+
+			<div class="content-block parallax" id="parallax">
+				<div class="container text-center">
+					<h1>"rain may pour but nothing can stop us soar"</h1>
+					<a href="http://adamsoncompsci.com/acomss.php" class="btn btn-o-white btn-lg">Get to know more about ACOMSS PenTell</a>
+				</div>
+			</div><!-- #parallax -->
+
+			<div class="content-block" id="testimonials">
+				<div class="container">
+					<header class="block-heading cleafix">
+						<h1>PenTell</h1>
+					</header>
+            <div class="col-sm-6 col-md-6 col-xs-12 image-container">
+              <!-- <img src="assets/images/P3n.png"/> -->
+              <img src="{% static "images/P3n.png" %}" alt="My image"/>
+            </div>
+            <div class="col-sm-6 col-md-6 col-xs-12">
+                <p>The Editorial team provides the scopes and happenings inside the walls of computer science, delivering updates and entertaining coverage for the satisfaction of the students. This umbrella focuses on the improvement and growths of an individual as a creative and critical thinker. We are diverse group of people aspiring to explore, express and empower. We are the voice of Computer Science.</p>
+            </div>
+				</div>
+			</div><!-- /#testimonials -->
+
+
+			<div class="content-block" id="contact">
+				<div class="container text-center">
+					<header class="block-heading cleafix">
+						<h1>Contact Us</h1>
+						<p>Feel free to drop us a line.</p>
+					</header>
+					<section class = "block-body">
+						{% block form_content %}
+						{% endblock form_content %}
+					</section>
+				</div>
+			</div><!-- #contact -->
+
+			<div class="content-block" id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-6">Copyright (c) 2016 Copyright Holder All Rights Reserved.</div>
+						<!-- <div class="col-xs-6 text-right">Theme by <a href="#">ThemeWagon</a></div> -->
+					</div>
+				</div>
+			</div><!-- #footer -->
+
+
+		</div><!--/#wrapper-->
+
+
+
+    <script src='{% static "js/jquery-2.1.3.min.js" %}' ></script>
+    <script src='{% static "js/jquery-migrate-1.2.1.min.js" %}' ></script>
+    <script src='{% static "js/bootstrap.min.js" %}' ></script>
+    <script src='{% static "js/jquery.actual.min.js" %}' ></script>
+    <script src='{% static "js/jquery.scrollTo.min.js" %}' ></script>
+    <script src='{% static "js/script.js" %}' ></script>
+		<script>
+			jQuery(document).ready(function() {
+			    jQuery("#login_view").click(function(){
+							window.location.href= "{% url 'accounts:login' %}";
+			    });
+				});
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+    {% if "html_safe" in message.tags %}
+      {{ message|safe }}
+    {% else %}
+      {{ message }}
+    {% endif %}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+  <h1>{{title}}</h1>
+
+  {{instance.title}}<br/>
+  {{instance.content}}<br/>
+  {{instance.timestamp}}<br/>
+  {{instance.updated}}<br/>
+  {{instance.id}}<br/><br>
+
+
+</body>
+</html>
+<!-- {% extends "base.html" %}
+{% block content %}
+  <h1>{{title}}</h1>
+
+  {{instance.title}}<br/>
+  {{instance.content}}<br/>
+  {{instance.timestamp}}<br/>
+  {{instance.updated}}<br/>
+  {{instance.id}}<br/><br>
+
+{% endblock content %} -->
+
+
+<!-- {% extends "base.html" %}
+
+{% block head_title %}
+{{ instance.title}} | {{ block.super}}
+{%  endblock head_title %}
+
+<style>
+{% block style %}
+h1 {
+  color: #1d1f1d;
+}
+{% endblock style %}
+</style>
+
+{% block content %}
+  <h1>{{title}}</h1>
+
+  {{instance.title}}<br/>
+  {{instance.content}}<br/>
+  {{instance.timestamp}}<br/>
+  {{instance.updated}}<br/>
+  {{instance.id}}<br/><br>
+
+{% endblock content %} -->

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+<div class="col-sm-6 col-sm-offset-3 well">
+  <div class="head">
+    <h1>ACOMSS Newsletter Login</h1>
+  </div>
+<form method= 'POST' action='' enctype='multipart/form-data'>{% csrf_token %}
+  {{ form|crispy }}
+<input type='submit' class='btn btn-primary' value='{{ title }}'/>
+</form>
+</div>
+{% endblock content %}

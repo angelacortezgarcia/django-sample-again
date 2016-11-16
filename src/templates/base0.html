@@ -1,0 +1,122 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ACOMSS Newsletter | Articles</title>
+    <!-- Custom CSS -->
+    <!-- <link href="assets/css/events.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href='{% static "css/events.css" %}' />
+    <link rel="stylesheet" href='{% static "css/font-awesome.min.css" %}' />
+    <link rel="stylesheet" href='{% static "css/bootstrap.css" %}' />
+
+    <!-- Bootstrap Core CSS -->
+    <!-- <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+  {% block nav_content %}
+      <!-- Navigation -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: #1f2a3c;">
+          <div class="container">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header" >
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href={% url 'newsletter:list' %}><p class= logo-p>PenTell</p></a>
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right">
+                  <ul class="nav navbar-nav links-navbar">
+                      <li>
+                          <a href={% url 'newsletter:list' %}><p>Home</p></a>
+                      </li>
+                      <li>
+                          <a href={% url 'newsletter:articles' %}><p>Articles</p></a>
+                      </li>
+                      {% if request.user.is_authenticated %}
+                      <li>
+                          <a href={% url 'accounts:register' %}><p>Add User</p></a>
+                      </li>
+                        <li>
+                            <a href={% url 'accounts:logout' %}><p>Logout</p></a>
+                        </li>
+                        {% else %}
+                          <li>
+                              <a href={% url 'accounts:login' %}><p>Login</p></a>
+                          </li>
+                      {% endif %}
+
+                  </ul>
+              </div>
+              <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container -->
+      </nav>
+  {% endblock nav_content %}
+
+<!-- Centered Pills -->
+<br>
+    <ul class="nav nav-pills nav-justified">
+      <li><a href="{% url 'newsletter:orderbytitle' %}">Title</a></li>
+      <li><a href="{% url 'newsletter:oldpost' %}">Oldest Post</a></li>
+      <li><a href="{% url 'newsletter:newpost' %}">Newest Post</a></li>
+      <li><a href="{% url 'newsletter:author' %}">Author</a></li>
+    </ul>
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Articles
+                  {% if user.is_authenticated %}
+                    <a class="portfolio-link btn btn-success" role="button" style="float:right" href="{% url 'newsletter:create' %}">Create Article</a>
+                  {% endif %}
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Page Features -->
+          <div class="row text-center">
+          {% block content %}
+          {% endblock content %}
+        </div>        <!-- /.row -->
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright (c) 2016 Copyright Holder All Rights Reserved.</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <!-- <script src="assets/js/jquery.js"></script> -->
+
+    <!-- Bootstrap Core JavaScript -->
+    <!-- <link rel="stylesheet" href='{% static "js/bootstrap.min.js" %}' /> -->
+    <script src='{% static "js/bootstrap.min.js" %}'></script>
+
+</body>
+
+</html>
