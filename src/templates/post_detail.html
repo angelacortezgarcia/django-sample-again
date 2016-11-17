@@ -19,6 +19,13 @@
     <!-- <span class="likebtn-wrapper" data-theme="custom" data-icon_l_c_v="#257af9" data-icon_d_c_v="#e91528" data-identifier="item_1" data-href="{{ request.build_absolute_uri }}"></span> -->
     <span class="likebtn-wrapper" data-theme="custom" data-href="{{ request.build_absolute_uri }}"></span>
 
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}/">
+    Share on Facebook
+    </a>
+    <a href="https://twitter.com/home?status={{title}} read more: {{ request.build_absolute_uri }}">Share on Twitter</a>
+<a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'>Share on Google plus</a>
+
+
     <div class="row">
       <div class="col-sm-12">
         <hr>
